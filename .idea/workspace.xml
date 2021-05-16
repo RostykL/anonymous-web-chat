@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="173a8a11-24e3-4d2a-8f22-d3ae5f793985" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/front/src/components/LeftSidebar/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front" beforeDir="false" afterPath="$PROJECT_DIR$/front" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" />
@@ -41,6 +42,11 @@
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.45" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front/src/components/Chat" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,7 +58,7 @@
       <workItem from="1620981810433" duration="14527000" />
       <workItem from="1621004100712" duration="14116000" />
       <workItem from="1621108915998" duration="6613000" />
-      <workItem from="1621152075050" duration="11873000" />
+      <workItem from="1621152075050" duration="17486000" />
     </task>
     <servers />
   </component>

@@ -13,13 +13,6 @@ let clients = new Map();
 
 io.on('connection', (socket) => {
 
-  // TODO
-  // КОРИСТУВАЧ ЗАХОДИТЬ НА САЙТ І ЙОГО АБО ДОДАЄ ДО КІМНАТИ АБО СТВОРЮЄТЬСЯ НОВА
-  // КОЛИ ВІН ВИХОДИТЬ, ЙОГО ПОТРІБНО ВИКЛЮЧАТИ З КІМНАТИ І ЗМІНЮВАТИ ID КІМНАТИ НА ТОГО ЮЗЕРА ЯКИЙ ЗАЛИШИВСЯ
-
-  // Коли один користувач виходить або заходить в чат потрібно попередити про це користувача
-
-
   socket.on("user looking for a room", ({clientID, interests}) => {
 	let clientRoom = createRoom(clientID, interests);
     clients.set(clientID, {interests, room: io.sockets.adapter.rooms})
