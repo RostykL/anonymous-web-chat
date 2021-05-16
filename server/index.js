@@ -17,16 +17,8 @@ io.on('connection', (socket) => {
   // КОРИСТУВАЧ ЗАХОДИТЬ НА САЙТ І ЙОГО АБО ДОДАЄ ДО КІМНАТИ АБО СТВОРЮЄТЬСЯ НОВА
   // КОЛИ ВІН ВИХОДИТЬ, ЙОГО ПОТРІБНО ВИКЛЮЧАТИ З КІМНАТИ І ЗМІНЮВАТИ ID КІМНАТИ НА ТОГО ЮЗЕРА ЯКИЙ ЗАЛИШИВСЯ
 
-  // let room1 = createRoom("room1", ["male", "female", "idk", "lol"]);
-  // let room2 = createRoom("room2", ['bunny']);
-  // let room4 = createRoom("room3", ['bunny']);
-  // let room3 = createRoom("room3", ["male"]);
-  // rooms = addToRoom({user: "room1user", name: room1.name, looking_for: room1.looking_for}, rooms)
-  // rooms = addToRoom({user: "room3user", name: room3.name, looking_for: room3.looking_for}, rooms)
-  // rooms = addToRoom({user: "room4user", name: room4.name, looking_for: room4.looking_for}, rooms)
-  // rooms = addToRoom({user: "room2user", name: room2.name, looking_for: room2.looking_for}, rooms)
-  // rooms = removeFromRoom(room1.name, rooms)
-  // console.log(rooms)
+  // Коли один користувач виходить або заходить в чат потрібно попередити про це користувача
+
 
   socket.on("user looking for a room", ({clientID, interests}) => {
 	let clientRoom = createRoom(clientID, interests);
@@ -35,6 +27,7 @@ io.on('connection', (socket) => {
     rooms = data[0]
     clients = data[1]
     socket.join(clients.get(socket.id))
+    socket.to(clients.get(socket.id)).emit("chat message", socket.id + " приєднався")
     console.log(clients, rooms)
   })
 
@@ -46,6 +39,9 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     let getRoom = clients.get(socket.id)
+    io.to(getRoom).emit("chat message", socket.id + " покинув чат")
+    io.to(getRoom).emit('find another chat', {find: true})
+
     rooms = removeFromRoom(getRoom, rooms)
     socket.leave(getRoom)
     clients.delete(socket.id)
